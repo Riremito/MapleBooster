@@ -35,7 +35,7 @@ bool Hook() {
 		DEBUG(L"IWzResMan__GetObjectA hook is failed.");
 		return false;
 	}
-	//SHookFunction(IWzResMan__GetObjectA, uIWzResMan__GetObjectA);
+	SHookFunction(IWzResMan__GetObjectA, uIWzResMan__GetObjectA);
 	DEBUG(L"IWzResMan__GetObjectA is hooked.");
 
 	switch (uIWzResMan__GetObjectA) {
@@ -71,6 +71,41 @@ bool Hook() {
 		break;
 	}
 	case JMS_v327: {
+		//r.Patch(0x0087BC52, L"B8 01 00 00 00");
+		//r.Patch(0x0087BC59, L"B8 01 00 00 00");
+		//r.Patch(0x0087BC75, L"B8 01 00 00 00");
+		//r.Patch(0x00, L"B8 01 00 00 00");
+		r.Patch(0x01346B32, L"B8 01 00 00 00"); // String/PetDialog.img
+		r.Patch(0x01346B8B, L"B8 01 00 00 00"); // Etc/FamiliarInfo.img
+		r.Patch(0x01346C9E, L"B8 01 00 00 00"); // Character/Familiar/*.img
+		r.Patch(0x009C1293, L"B8 01 00 00 00"); // Item/Consume/0238.img
+		r.Patch(0x00B5BEF2, L"B8 01 00 00 00"); // Skill/JOB_ID.img/skill/SKILL_ID/skillpet
+
+
+		r.Patch(0x00859452, L"B8 01 00 00 00"); // Item/ItemOption.img
+		r.Patch(0x01346A01, L"B8 01 00 00 00"); // Skill/Recipe_*.img
+		r.Patch(0x01346AC7, L"B8 01 00 00 00"); // Item/FamiliarOption.img
+		r.Patch(0x01346B23, L"B8 01 00 00 00"); // Morph/*.img
+		r.Patch(0x01348359, L"B8 01 00 00 00"); // Quest
+		r.Patch(0x01349B52, L"B8 01 00 00 00");// String/MonsterBook.img
+		r.Patch(0x0087BC52, L"B8 01 00 00 00");// String/Map.img
+		r.Patch(0x0087BC83, L"B8 01 00 00 00"); // Etc/ScanBlock.img
+		r.Patch(0x0087BCB4, L"B8 01 00 00 00"); // Item/Cash/
+		r.Patch(0x0134698D, L"B8 01 00 00 00"); // Item/Consume/
+
+
+		//r.Patch(0x01346DE4, L"B8 01 00 00 00"); // skill
+		r.Patch(0x01346E42, L"B8 01 00 00 00"); //
+		r.Patch(0x01346EA0, L"B8 01 00 00 00"); //
+		r.Patch(0x01346EFE, L"B8 01 00 00 00"); //
+		r.Patch(0x01346F68, L"B8 01 00 00 00"); //
+		r.Patch(0x01346FD5, L"B8 01 00 00 00"); //
+		r.Patch(0x0134703F, L"B8 01 00 00 00"); //
+		r.Patch(0x013470A9, L"B8 01 00 00 00"); //
+		r.Patch(0x01347113, L"B8 01 00 00 00"); //
+		r.Patch(0x013471BA, L"B8 01 00 00 00"); //
+		r.Patch(0x013471FC, L"B8 01 00 00 00"); //
+
 		break;
 	}
 	default: {
